@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Yu Gothic';
+}
+
+body {
+	margin: 0;
+	color: #544430;
+	font-weight: 500;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+a {
+	color: #544430;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul, ol {
+	padding: 0;
+	list-style: none;
+}
+
+button {
+	outline: none;
+	cursor: pointer;
+}
+
+p {
+	line-height: 1.8;
+}
+
+video {
+	outline: none;
+}
