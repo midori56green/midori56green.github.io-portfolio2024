@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="haruka yamada">
+<meta name="description" content="ADVENTURE WORLDでは、javascript（jQuery）を使用したシューティンゲームで遊ぶことができます。">
+<title>SKY&ensp;ADVENTURE</title>
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<header class="header">
+		<div class="header-window">
+			<h1 class="logo">
+				<a href="#" class="logo-link">SKY&ensp;ADVENTURE</a>
+			</h1>
+			<a href="#" class="game-btn open">
+				<i class="fa-solid fa-rocket icon"></i>PLAY&ensp;GAME
+			</a>
+		</div>
+	</header>
+	<main class="main">
+		<section class="main-cnt">
+			<h2 class="main-title"><span class="main-title_back">SKY&ensp;ADVENTUREへようこそ！</span></h2>
+			<p>このサイトでは、javascript（jQuery）を使用したシューティンゲームで遊ぶことができます。</p>
+			<small>※このゲームはPCでのプレイを想定しており、モバイル端末では動作がうまくいかない場合があります</small>
+			<ul class="rule-cnt">
+				<li class="rule-cnt_li">スタート画面でゲームの難易度を選択してください</li>
+				<li class="rule-cnt_li">マウスを動かすと<ruby><img src="img/game_1/player.png" alt="プレイヤーの画像" class="ruby-img"><rt>プレイヤー</rt></ruby>を動かすことができます</li>
+				<li class="rule-cnt_li">左側から出現する<ruby><img src="img/game_1/enemy.png" alt="障害物の画像" class="ruby-img"><rt>障害物</rt></ruby>にプレイヤーが当たるとゲームオーバーとなります</li>
+				<li class="rule-cnt_li">マウスをクリックするとプレイヤーが<ruby><img src="img/game_1/bullet.png" alt="弾の画像" class="ruby-img"><rt>弾幕</rt></ruby>を発射し、障害物は弾幕に当たることで消滅します</li>
+				<li class="rule-cnt_li">障害物の色によって弾幕が当たって消滅する回数が違うので注意しましょう</li>
+				<li class="rule-cnt_li">右上の✕ボタン、もしくはゲームオーバ画面のENDを押すと終了します。</li>
+				<li class="rule-cnt_li">GAMEOVER画面のRETRYを押すと、START画面に戻ります</li>
+				<li class="rule-cnt_li">高得点を目指して頑張ろう！！</li>
+			</ul>
+		</section>
+		<section class="main-cnt">
+			<h2 class="main-title"><span class="main-title_back">エラー・改善案（2022/06/30現在）</span></h2>
+			<ul class="rule-cnt">
+				<li class="rule-cnt_li">障害物と接触した弾幕が消えない場合がある</li>
+				<li class="rule-cnt_li">プレイ中に右上の✕ボタンを押すと、ゲームが適切に終了しない</li>
+				<li class="rule-cnt_li">弾幕を発射した際にコンソールエラーが発生する</li>
+				<li class="rule-cnt_li">障害物が消滅した際にポイント数を表示するようにしたい</li>
+				<li class="rule-cnt_li">ゲーム内に障害物以外のギミックを追加したい</li>
+				<li class="rule-cnt_li">モバイル端末からの操作にも対応させたい</li>
+				<li class="rule-cnt_li">キーボード操作にも対応させたい</li>
+			</ul>
+		</section>
+		<div id="overlay">
+			<a href="#" class="close-btn end" title="ゲームを終了します">ゲームを終了します</a>
+			<div id="game-screen">
+				<div id="game-status">
+					<p class="score status">
+						<i class="fa-solid fa-star icon"></i>SCORE
+						<span class="score-num game-num">0</span>
+					</p>
+					<p class="time status">
+						<i class="fa-solid fa-clock icon"></i>TIME
+						<span class="time-num game-num">0</span>
+					</p>
+				</div>
+				<div id="game-app">
+					<div id="player"></div>
+					<div class="start-btn_wrap">
+						<p class="game-over_title">START</p>
+						<div class="game-btn_wrap">
+							<a href="#" class="game-btn start" data-lv="1">LV.1</a>
+							<a href="#" class="game-btn start blue" data-lv="2">LV.2</a>
+							<a href="#" class="game-btn start green" data-lv="3">LV.3</a>
+						</div>
+					</div>
+					<div class="game-over">
+						<p class="game-over_title">GAME OVER!!</p>
+						<p class="lv-text">LV. <span class="lv-result"></span></p>
+						<div class="score-cnt">
+							<p class="score-cnt_p">SCORE<span class="score-result game-over_result"></span></p>
+							<p class="score-cnt_p">TIME<span class="time-result game-over_result"></span></p>
+						</div>
+						<div class="game-btn_wrap">
+							<a href="#" class="game-btn retry blue">
+								<i class="fa-solid fa-arrow-rotate-left icon"></i>RETRY
+							</a>
+							<a href="#" class="game-btn end">
+								<i class="fa-solid fa-xmark icon"></i>END
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+		<a href="#" class="pagetop" title="ページの先頭へ移動します">ページの先頭へ戻る</a>
+		<p><small>&copy;&ensp;2019-2022&ensp;Haruka&ensp;Yamada.</small></p>
+	</footer>
+	<script src="https://kit.fontawesome.com/2d0c321810.js" crossorigin="anonymous"></script>
+	<script src="js/jquery-3.1.0.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/game-script.js"></script>
+</body>
+</html>
